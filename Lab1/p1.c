@@ -14,7 +14,7 @@ int count(int v[], int find, int size, int idx){
     if(size == idx){
         return 0;
     }
-    else if(idx < size){
+    else{
         if(v[idx] == find){
             return 1 + count(v, find, size, idx+1);
         }
