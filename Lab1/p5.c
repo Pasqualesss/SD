@@ -1,15 +1,21 @@
 #include <stdio.h>
 
-int pwr(int nr, int exp);
+float pwr(float nr, int exp);
 
 int main(){
-    int nr, exp;
-    scanf("%d %d", &nr, &exp);
-    printf("%d\n", pwr(nr, exp));
+    float nr;
+    int exp;
+    scanf("%f %d", &nr, &exp);
+    if(exp > 0){
+        printf("%.2f\n", pwr(nr, exp));
+    }
+    else{
+        printf("%f\n", 1/pwr(nr, exp));
+    }
     return 0;
 }
 
-int pwr(int nr, int exp){
+float pwr(float nr, int exp){
     if(exp == 1){
         return nr;
     }
