@@ -1,10 +1,12 @@
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 int palindrom(char *s, int start, int end);
 
 int main(){
-    char s[]="motor";
+    char s[100];
+    scanf("%s", s);
     int start = 0;
     int end = strlen(s)-1;
     if(palindrom(s, start, end) == 0){
@@ -22,7 +24,7 @@ int palindrom(char *s, int start, int end){
     else if(start == end-1){
         return 0;
     }
-    if(s[start] == s[end]){
+    if(tolower(s[start]) == tolower(s[end])){
         return palindrom(s, start+1, end-1);
     }
     else{
