@@ -16,8 +16,8 @@ int main(){
     init(&list);
     char s1[]="hello", s2[]="buna", s3[]="bonjour";
     add(list, 0, s1);
-    add(list, 1, s2);
-    add(list, 1, s3);
+    add(list, 0, s2);
+    add(list, 0, s3);
     print_string_list(list);
     free_list(&list);
     return 0;
@@ -74,9 +74,10 @@ void print_int_list(TList *list){
         return;
     } 
     int i;
+    node *p = list->head;
     for(i=0;i<list->len;i++){
-        printf("%d\n", *(int*)list->head->data);
-        list->head = list->head->next;
+        printf("%d\n", *(int*)p->data);
+        p = p->next;
     }
 }
 
@@ -86,9 +87,11 @@ void print_string_list(TList *list){
         return;
     } 
     int i;
+    //Daca nu fac asta ramane memorie nealocata, de ce?
+    node *p = list->head;
     for(i=0;i<list->len;i++){
-        printf("%s\n", (char*)list->head->data);
-        list->head = list->head->next;
+        printf("%s\n", (char*)p->data);
+        p = p->next;
     }
 }
 
